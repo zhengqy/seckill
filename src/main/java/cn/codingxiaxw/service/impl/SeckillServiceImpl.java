@@ -19,7 +19,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
-import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
@@ -112,9 +111,7 @@ public class SeckillServiceImpl implements SeckillService
         }
         //执行秒杀逻辑:减库存+增加购买明细
         Date nowTime=new Date();
-
         try{
-
             //否则更新了库存，秒杀成功,增加明细
             int insertCount=successKilledDao.insertSuccessKilled(seckillId,userPhone);
             //看是否该明细被重复插入，即用户是否重复秒杀

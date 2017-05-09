@@ -61,7 +61,7 @@ public class SeckillController
                     method = RequestMethod.POST,
                     produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public SeckillResult<Exposer> exposer(Long seckillId)
+    public SeckillResult<Exposer> exposer(@PathVariable("seckillId") Long seckillId)
     {
         SeckillResult<Exposer> result;
         try{
@@ -82,7 +82,7 @@ public class SeckillController
     @ResponseBody
     public SeckillResult<SeckillExecution> execute(@PathVariable("seckillId") Long seckillId,
                                                    @PathVariable("md5") String md5,
-                                                   @CookieValue(value = "killPhone",required = false) Long phone)
+                                                   @CookieValue(value = "userPhone",required = false) Long phone)
     {
         if (phone==null)
         {
